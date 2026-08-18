@@ -72,3 +72,59 @@ console.log("Inventory Management System Loaded");
 console.log("Total Main Equipment:", equipmentData.length);
 
 console.log("Equipment List:", equipmentData);
+function showEquipment() {
+
+    const grid = document.getElementById("equipmentGrid");
+
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    equipmentData.forEach((equipment) => {
+
+        const card = document.createElement("div");
+
+        card.className = "equipment-card";
+
+        let subHTML = "";
+
+        if (equipment.subEquipment.length > 0) {
+
+            subHTML = `
+                <div style="margin-top:15px; font-weight:bold;">
+                    Sub Equipment:
+                </div>
+
+                <ul class="sub-list">
+                    ${equipment.subEquipment
+                        .map(sub => `<li>${sub}</li>`)
+                        .join("")}
+                </ul>
+            `;
+        }
+
+        card.innerHTML = `
+
+            <div class="equipment-icon">
+                ⚙️
+            </div>
+
+            <div class="equipment-name">
+                ${equipment.name}
+            </div>
+
+            <div class="equipment-type">
+                ${equipment.type}
+            </div>
+
+            ${subHTML}
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+showEquipment();
