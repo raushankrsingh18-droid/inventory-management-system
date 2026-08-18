@@ -128,3 +128,43 @@ function showEquipment() {
 }
 
 showEquipment();
+function showPage(page) {
+
+    const dashboard = document.getElementById("dashboardPage");
+    const equipment = document.getElementById("equipmentPage");
+
+    // Hide all pages first
+
+    if (dashboard) {
+        dashboard.style.display = "none";
+    }
+
+    if (equipment) {
+        equipment.style.display = "none";
+    }
+
+
+    // Dashboard
+
+    if (page === "dashboard") {
+
+        if (dashboard) {
+            dashboard.style.display = "block";
+        }
+
+    }
+
+
+    // Equipment
+
+    if (page === "equipment") {
+
+        if (equipment) {
+            equipment.style.display = "block";
+        }
+
+        showEquipment();
+
+    }
+
+}
