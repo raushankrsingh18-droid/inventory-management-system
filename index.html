@@ -1,111 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Inventory Management System</title>
 
     <link rel="stylesheet" href="style.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #172033;
-        }
+</head>
 
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 230px;
-            background: #0b2747;
-            color: white;
-            padding: 20px 12px;
-        }
+<body>
 
-        .logo {
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
+    <!-- SIDEBAR -->
 
-        .logo small {
-            display: block;
-            font-size: 10px;
-            color: #9fc8ff;
-            margin-top: 5px;
-        }
+    <aside class="sidebar">
 
-        .menu {
-            list-style: none;
-        }
+        <div class="logo">
 
-        .menu li {
-            padding: 12px;
-            margin: 4px 0;
-            border-radius: 7px;
-            cursor: pointer;
-        }
+            ◈ INVENTORY
 
-        .menu li:hover,
-        .menu .active {
-            background: #1479e9;
-        }
+            <small>
+                MANAGEMENT SYSTEM
+            </small>
 
-        /* Main */
-        .main {
-            margin-left: 230px;
-            min-height: 100vh;
-        }
+        </div>
 
-        .header {
-            height: 65px;
-            background: white;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 25px;
-        }
 
-        .header h2 {
-            font-size: 20px;
-        }
+        <ul class="menu">
 
-        .user {
-            font-size: 14px;
-        }
+            <li id="menuDashboard"
+                class="active"
+                onclick="showPage('dashboard')">
 
-        .content {
-            padding: 25px;
-        }
+                🏠 Dashboard
 
-        /* Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
+            </li>
 
-        .card {
-            background: white;
-            border: 1px solid #e3e8ef;
-            border-radius: 10px;
-            padding: 20px;
-        }
 
-        .card-title {
-            color: #667085;
+            <li id="menuEquipment"
+                onclick="showPage('equipment')">
+
+                ⚙️ Equipment
+
+            </li>
+
+
+            <li id="menuInventory"
+                onclick="showPage('inventory')">
+
+                📦 Spare Inventory
+
+            </li>
+
+
+            <li id="menuStockIn"
+                onclick="showPage('stockIn')">
+
+                ➕ Stock IN
+
+            </li>
+
+
+            <li id="menuStockOut"
+                onclick="showPage('stockOut')">
+
+                ➖ Stock OUT
+
+            </li>
+
+
+            <li id="menuHistory"
+                onclick="showPage('history')">
+
+                📜 History
+
+            </li>
+
+
+            <li id="menuLowStock"
+                onclick="showPage('lowStock')">
+
+                ⚠️ Low Stock
+
+            </li>
+
+
+            <li id="menuReports"
+                onclick="showPage('reports')">
+
+                📊 Reports
+
+            </li>
+
+
+            <li id="menuUsers"
+                onclick="showPage('users')">
+
+                👥 Users
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <h2 id="pageTitle">
+                Dashboard
+            </h2>
+
+            <div class="user">
+                🔔 &nbsp; 👤 Admin
+            </div>
+
+        </header>
+
+
+
+        <!-- ========================= -->
+        <!-- DASHBOARD -->
+        <!-- ========================= -->
+
+        <section id="dashboardPage"
+                 class="page dashboard-page">
+
+            <div class="content">
+
+                <div class="cards">
+
+
+                    <div class="card">
+
+                        <div class="card-title">
+                            Main Equipment
+                        </div>
+
+                        <div class="card-number">
+                            10
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-title">
+                            Sub Equipment
+                        </div>
+
+                        <div class="card-number">
+                            10
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-title">
+                            Total Spare Parts
+                        </div>
+
+                        <div class="card-number">
+                            36
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-title">
+                            Low Stock
+                        </div>
+
+                        <div class="card-number">
+                            5
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="section">
+
+                    <h3>
+                        🏭 Equipment Summary
+                    </h3>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Equipment
+                                    </th>
+
+                                    <th>
+                                        Type
+                                    </th>
+
+                                    <th>
+                                        Spare Parts
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Cooling Bed
+                                    </td>
+
+                                    <td>
+                                        Main Equipment
+                                    </td>
+
+                                    <td>
+                                        4
+                                    </td>
+
+                                    <td>
+                                        <span class="badge green">
+                                            OK
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        New Straightening Machine
+                                    </td>
+
+                                    <td>
+                                        Main Equipment
+                                    </td>
+
+                                    <td>
+                                        3
+                                    </td>
+
+                                    <td>
+                                        <span class="badge green">
+                                            OK
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        NDT
+                                    </td>
+
+                                    <td>
+                                        Main Equipment
+                                    </td>
+
+                                    <td>
+                                        12
+                                    </td>
+
+                                    <td>
+                                        <span class="badge yellow">
+                                            Attention
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        LRW Equipments
+                                    </td>
+
+                                    <td>
+                                        Main Equipment
+                                    </td>
+
+                                    <td>
+                                        10
+                                    </td>
+
+                                    <td>
+                                        <span class="badge green">
+                                            OK
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Press Machine
+                                    </td>
+
+                                    <td>
+                                        Main Equipment
+                                    </td>
+
+                                    <td>
+                                        3
+                                    </td>
+
+                                    <td>
+                                        <span class="badge red">
+                                            Low Stock
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="section">
+
+                    <h3>
+                        📜 Recent Transactions
+                    </h3>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Spare Part</th>
+                                    <th>Equipment</th>
+                                    <th>Qty</th>
+                                    <th>User</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        19-08-2026
+                                    </td>
+
+                                    <td>
+                                        <span class="badge red">
+                                            OUT
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        Bearing 6208
+                                    </td>
+
+                                    <td>
+                                        NDT - UT Machine
+                                    </td>
+
+                                    <td>
+                                        2
+                                    </td>
+
+                                    <td>
+                                        Maintenance
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        19-08-2026
+                                    </td>
+
+                                    <td>
+                                        <span class="badge green">
+                                            IN
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        V Belt A-32
+                                    </td>
+
+                                    <td>
+                                        LRW - Grinding Machine
+                                    </td>
+
+                                    <td>
+                                        5
+                                    </td>
+
+                                    <td>
+                                        Store
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- EQUIPMENT -->
+        <!-- ========================= -->
+
+        <section id="equipmentPage"
+                 class="page equipment-page">
+
+            <div class="content">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <h2>
+                            🏭 Equipment
+                        </h2>
+
+                        <p>
+                            Equipment & Sub Equipment Management
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="equipmentSearch"
+                    class="search-box"
+                    placeholder="🔍 Search equipment..."
+                    oninput="searchEquipment()"
+                >
+
+
+                <div id="equipmentGrid"
+                     class="equipment-grid">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- INVENTORY -->
+        <!-- ========================= -->
+
+        <section id="inventoryPage"
+                 class="page">
+
+            <div class="content">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <h2>
+                            📦 Spare Inventory
+                        </h2>
+
+                        <p>
+                            Spare parts stock management
+                        </p>
+
+                    </div>
+
+                    <button class="primary-btn">
+                        + Add Spare
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    class="search-box"
+                    placeholder="🔍 Search spare part..."
+                >
+
+
+                <div class="section">
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Part Name
+                                    </th>
+
+                                    <th>
+                                        Part No.
+                                    </th>
+
+                                    <th>
+                                        Equipment
+                                    </th>
+
+                                    <th>
+                                        Stock
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Bearing 6208
+                                    </td>
+
+                                    <td>
+                                        6208
+                                    </td>
+
+                                    <td>
+                                        NDT / UT Machine
+                                    </td>
+
+                                    <td>
+                                        7
+                                    </td>
+
+                                    <td>
+                                        <span class="badge green">
+                                            OK
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        V Belt A-32
+                                    </td>
+
+                                    <td>
+                                        A-32
+                                    </td>
+
+                                    <td>
+                                        LRW / Grinding
+                                    </td>
+
+                                    <td>
+                                        2
+                                    </td>
+
+                                    <td>
+                                        <span class="badge yellow">
+                                            LOW
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- STOCK IN -->
+        <!-- ========================= -->
+
+        <section id="stockInPage"
+                 class="page">
+
+            <div class="content">
+
+                <h2>
+                    ➕ Stock IN
+                </h2>
+
+                <p class="subtitle">
+                    Add incoming spare parts
+                </p>
+
+
+                <div class="form-card">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input type="date">
+
+
+                    <label>
+                        Supplier
+                    </label>
+
+                    <input type="text"
+                           placeholder="Supplier name">
+
+
+                    <label>
+                        Invoice / PO Number
+                    </label>
+
+                    <input type="text"
+                           placeholder="Invoice number">
+
+
+                    <label>
+                        Equipment
+                    </label>
+
+                    <select>
+
+                        <option>
+                            Select Equipment
+                        </option>
+
+                        <option>
+                            Cooling Bed
+                        </option>
+
+                        <option>
+                            NDT
+                        </option>
+
+                        <option>
+                            LRW Equipments
+                        </option>
+
+                    </select>
+
+
+                    <label>
+                        Spare Part
+                    </label>
+
+                    <input type="text"
+                           placeholder="Spare part">
+
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input type="number"
+                           placeholder="Quantity">
+
+
+                    <label>
+                        Rate
+                    </label>
+
+                    <input type="number"
+                           placeholder="Rate">
+
+
+                    <label>
+                        Remarks
+                    </label>
+
+                    <textarea
+                        placeholder="Remarks">
+                    </textarea>
+
+
+                    <button class="primary-btn">
+                        SAVE STOCK IN
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- STOCK OUT -->
+        <!-- ========================= -->
+
+        <section id="stockOutPage"
+                 class="page">
+
+            <div class="content">
+
+                <h2>
+                    ➖ Stock OUT
+                </h2>
+
+                <p class="subtitle">
+                    Issue spare parts for maintenance
+                </p>
+
+
+                <div class="form-card">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input type="date">
+
+
+                    <label>
+                        Equipment
+                    </label>
+
+                    <select>
+
+                        <option>
+                            Select Equipment
+                        </option>
+
+                        <option>
+                            Cooling Bed
+                        </option>
+
+                        <option>
+                            NDT
+                        </option>
+
+                        <option>
+                            LRW Equipments
+                        </option>
+
+                    </select>
+
+
+                    <label>
+                        Sub Equipment
+                    </label>
+
+                    <input type="text"
+                           placeholder="Sub equipment">
+
+
+                    <label>
+                        Spare Part
+                    </label>
+
+                    <input type="text"
+                           placeholder="Spare part">
+
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input type="number"
+                            color: #667085;
             font-size: 13px;
         }
 
