@@ -168,3 +168,39 @@ function showPage(page) {
     }
 
 }
+showEquipment();
+
+function showPage(page) {
+
+    const dashboard = document.getElementById("dashboardPage");
+    const equipment = document.getElementById("equipmentPage");
+
+    if (dashboard) {
+        dashboard.style.display = "none";
+    }
+
+    if (equipment) {
+        equipment.style.display = "none";
+    }
+
+    if (page === "dashboard") {
+
+        if (dashboard) {
+            dashboard.style.display = "block";
+        }
+
+    }
+
+    if (page === "equipment") {
+
+        if (equipment) {
+            equipment.style.display = "block";
+        }
+
+        showEquipment();
+
+    }
+
+}
+
+showPage("dashboard");
