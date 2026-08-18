@@ -1,1 +1,84 @@
 
+/* Inventory Management System */
+
+.equipment-page {
+    display: none;
+}
+
+.equipment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.equipment-card {
+    background: white;
+    border: 1px solid #e4e7ec;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.equipment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.equipment-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.equipment-name {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.equipment-type {
+    color: #667085;
+    font-size: 13px;
+}
+
+.sub-list {
+    margin-top: 12px;
+    padding-left: 18px;
+    color: #475467;
+    font-size: 13px;
+}
+
+.sub-list li {
+    margin-bottom: 6px;
+}
+
+@media (max-width: 700px) {
+
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .equipment-header {
+        display: block;
+    }
+
+    .search-box {
+        margin-top: 15px;
+    }
+}
